@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="ext">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/encoder-1.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/lz4-java-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/stagent.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/profilerprobe.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/common-8.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/flightrecorder-8.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

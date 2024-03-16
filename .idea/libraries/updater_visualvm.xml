@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="updater_visualvm">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/ext/locale/updater_visualvm.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ext1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/modules/ext/jna-5.12.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/modules/ext/updater.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/modules/ext/jna-platform-5.12.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/modules/ext/flatlaf-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

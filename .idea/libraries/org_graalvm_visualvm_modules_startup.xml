@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org-graalvm-visualvm-modules-startup">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/core/org-graalvm-visualvm-modules-startup.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

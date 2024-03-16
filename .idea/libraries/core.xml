@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="core">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/core-base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/org-netbeans-libs-asm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/org-openide-filesystems.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/asm-9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/asm-tree-9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/platform/core/asm-commons-9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="core_visualvm">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/core/locale/core_visualvm.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,53 @@
+<component name="libraryTable">
+  <library name="modules1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jmx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-gotosource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-sampler-truffle.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-heapviewer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-graalvm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-uisupport.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler-attach.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-sampler.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jfr-generic.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jvm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-host-views.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-pluginimporter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-api-caching.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler-heapwalker.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-jfluid-heap.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-application-views.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-modules-appui.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-attach.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-jfluid.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-profiling.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler-oql.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-charts.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-heapdump.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jfr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-threaddump.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-charts.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-ui.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-sa.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-coredump.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jvmstat.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-application.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-heapviewer-truffle.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jfr-jdk11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler-snaptracer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-lib-profiler-utilities.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-host-remote.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-host.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-jfr-jdk9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-heapviewer-console.jar!/" />
+      <root url="jar://$PROJECT_DIR$/visualvm_217/visualvm/modules/org-graalvm-visualvm-profiler.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
