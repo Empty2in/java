@@ -1,9 +1,9 @@
 import AbstractProg.AbstractProg;
 import Supervisor.Supervisor;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Program start work.\n");
-        new Thread(new Supervisor(new AbstractProg())).start();
-    }
+void main() {
+    System.out.println("Program start work.\n");
+    new Thread(new Supervisor(new AbstractProg("biba"))).start();
+    //new Thread(new Supervisor(new AbstractProg("boba"))).start();
+    //new Thread(new Supervisor(new AbstractProg("zeliboba"))).start();
 }

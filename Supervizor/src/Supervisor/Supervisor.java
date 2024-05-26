@@ -1,23 +1,34 @@
 package Supervisor;
-
 import AbstractProg.*;
+import static java.lang.StringTemplate.STR;
+
 
 public class Supervisor implements Runnable {
 
-    private final Thread program;
+    private final Thread programThread;
+    private final AbstractClassProg program;
 
-    public Supervisor(AbstractProg program) {
-        this.program = new Thread(program);
+    public Supervisor(AbstractClassProg program) {
+        this.program = program;
+        this.programThread = new Thread(program);
     }
 
     public void startProgram() {
-        System.out.println(AbstractProg.state + ": supervisor restarts the program.");
-        AbstractProg.state = State.RUNNING;
+        synchronized (AbstractProg.myLock) {
+            printMessage("supervisor restarts the program.");
+            program.setState(State.RUNNING);
+        }
     }
 
     public void stopProgram() {
-        System.out.println(AbstractProg.state + ": supervisor stops the program immediately.");
-        program.interrupt();
+        synchronized (AbstractProg.myLock) {
+            printMessage("supervisor stops the program immediately.");
+            programThread.interrupt();
+        }
+    }
+
+    private void printMessage(final String mess) {
+        System.out.println(STR."\{program.getState()}: \{mess} \{program.getName()}");
     }
 
     @Override
@@ -25,10 +36,10 @@ public class Supervisor implements Runnable {
 
         System.out.println("Supervisor starts working!");
 
-        program.start();
+        programThread.start();
         startProgram();
 
-        while (!program.isInterrupted()) {
+        while (!programThread.isInterrupted()) {
             synchronized (AbstractProg.myLock) {
                 try {
                     AbstractProg.myLock.wait();
@@ -36,13 +47,12 @@ public class Supervisor implements Runnable {
                     Thread.currentThread().interrupt();
                 }
 
-                State currentState = AbstractProg.state;
+                State currentState = program.getState();
                 switch (currentState) {
                     case STOPPING, UNKNOWN -> startProgram();
                     case FATAL_ERROR -> stopProgram();
-                    default -> System.out.println(currentState + ": supervisor monitors the program.");
+                    default -> printMessage("supervisor monitors the program");
                 }
-
             }
         }
     }
