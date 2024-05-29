@@ -1,34 +1,38 @@
 package Supervisor;
 import AbstractProg.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static java.lang.StringTemplate.STR;
-
 
 public class Supervisor implements Runnable {
 
     private final Thread programThread;
-    private final AbstractClassProg program;
+    private final AbstractProgInterface program;
+    private final String myLock;
+    private static final Logger logger = Logger.getLogger(Supervisor.class.getName());
 
-    public Supervisor(AbstractClassProg program) {
+    public Supervisor(AbstractProgInterface program, final String myLock) {
         this.program = program;
         this.programThread = new Thread(program);
+        this.myLock = myLock;
     }
 
     public void startProgram() {
-        synchronized (AbstractProg.myLock) {
+        synchronized (myLock) {
             printMessage("supervisor restarts the program.");
             program.setState(State.RUNNING);
         }
     }
 
     public void stopProgram() {
-        synchronized (AbstractProg.myLock) {
+        synchronized (myLock) {
             printMessage("supervisor stops the program immediately.");
             programThread.interrupt();
         }
     }
 
     private void printMessage(final String mess) {
-        System.out.println(STR."\{program.getState()}: \{mess} \{program.getName()}");
+        System.out.println(STR."\{program.getState()}: \{mess}");
     }
 
     @Override
@@ -40,11 +44,12 @@ public class Supervisor implements Runnable {
         startProgram();
 
         while (!programThread.isInterrupted()) {
-            synchronized (AbstractProg.myLock) {
+            synchronized (myLock) {
                 try {
-                    AbstractProg.myLock.wait();
+                    myLock.wait();
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
+                    logger.log(Level.SEVERE, "Supervisor thread was interrupted", e);
                 }
 
                 State currentState = program.getState();
