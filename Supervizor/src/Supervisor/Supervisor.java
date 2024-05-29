@@ -11,10 +11,10 @@ public class Supervisor implements Runnable {
     private final String myLock;
     private static final Logger logger = Logger.getLogger(Supervisor.class.getName());
 
-    public Supervisor(AbstractProgInterface program, final String myLock) {
+    public Supervisor(AbstractProgInterface program) {
         this.program = program;
         this.programThread = new Thread(program);
-        this.myLock = myLock;
+        this.myLock = program.getLock();
     }
 
     public void startProgram() {

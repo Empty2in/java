@@ -45,6 +45,11 @@ public class AbstractProg implements AbstractProgInterface {
     }
 
     @Override
+    public String getLock() {
+        return myLock;
+    }
+
+    @Override
     public void setState(final State state) {
         this.state = state;
     }
