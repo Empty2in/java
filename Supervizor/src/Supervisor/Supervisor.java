@@ -1,6 +1,5 @@
 package Supervisor;
 import AbstractProg.*;
-import static java.lang.StringTemplate.STR;
 
 
 public class Supervisor implements Runnable {
