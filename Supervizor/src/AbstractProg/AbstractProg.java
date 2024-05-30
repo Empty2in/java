@@ -11,28 +11,36 @@ import java.util.concurrent.TimeUnit;
  */
 public class AbstractProg implements Runnable {
 
-    private final String myLock;
+    private final Object myLock; //mutex
     private ProgState state = ProgState.UNKNOWN;
 
-    public AbstractProg(final String myLock) {
+    public AbstractProg(final Object myLock) {
         this.myLock = myLock;
     }
 
     @Override
     public void run() {
         System.out.println("Abstract program starts working!");
+        Thread progThread = Thread.currentThread();
 
         Thread daemon = new Thread(() -> {
 
             //the daemon runs until the abstract program thread is interrupted
-            while (!Thread.currentThread().isInterrupted()) {
+            while (!progThread.isInterrupted()) {
                 //specified interval for daemon thread
                 imaginaryDelay(1);
                 //capturing the monitor of an abstract program object by a daemon
                 synchronized (myLock) {
-                    state = ProgState.values()[new Random().nextInt(ProgState.values().length)]; //set a random state
+
+                    //set a random state without UNKNOWN
+                    //nexInt(n) - give value from 0 to n-1
+                    //we want int from 1 to n-1, so +1, but for not go out index before length-1
+                    state = ProgState.values()[
+                                new Random().nextInt(ProgState.values().length - 1) + 1
+                            ];
+
                     System.out.println(STR."Daemon sets new state: \{state}");
-                    myLock.notifyAll();
+                    myLock.notifyAll(); //give monitor to supervisor
                 }
             }
         });
@@ -41,7 +49,7 @@ public class AbstractProg implements Runnable {
         daemon.start();
 
         //the abstract program runs until thread is interrupted
-        while (!Thread.currentThread().isInterrupted()) {
+        while (!progThread.isInterrupted()) {
             abstractWork();
         }
     }
@@ -50,14 +58,12 @@ public class AbstractProg implements Runnable {
         return state;
     }
 
-    public String getLock() {
+    public Object getLock() {
         return myLock;
     }
 
     public void setState(final ProgState state) {
-        synchronized (myLock) {
-            this.state = state;
-        }
+        this.state = state;
     }
 
     private void imaginaryDelay(final int timeout) {
@@ -65,7 +71,7 @@ public class AbstractProg implements Runnable {
             TimeUnit.SECONDS.sleep(timeout);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Thread was interrupted");
+            System.err.println("Thread was interrupted in imaginaryDelay");
         }
     }
 

@@ -1,8 +1,8 @@
-import AbstractProg.AbstractProg;
+import AbstractProg.*;
 import Supervisor.Supervisor;
 
 void main() {
-    String myLock = "";
+    Object myLock = new Object();
     System.out.println("Program start work.\n");
     new Thread(new Supervisor(new AbstractProg(myLock))).start();
 }

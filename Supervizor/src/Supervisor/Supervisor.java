@@ -9,7 +9,7 @@ public class Supervisor implements Runnable {
 
     private final Thread programThread;
     private final AbstractProg program;
-    private final String myLock;
+    private final Object myLock; //mutex
 
     public Supervisor(AbstractProg program) {
         this.program = program;
@@ -19,18 +19,14 @@ public class Supervisor implements Runnable {
 
     public void startProgram() {
         //capturing the monitor by locking a specific program to start it
-        synchronized (myLock) {
-            printMessage("supervisor restarts the program.");
-            program.setState(ProgState.RUNNING);
-        }
+        printMessage("supervisor restarts the program.");
+        program.setState(ProgState.RUNNING);
     }
 
     public void stopProgram() {
         //capturing the monitor by locking a specific program to stop it
-        synchronized (myLock) {
-            printMessage("supervisor stops the program immediately.");
-            programThread.interrupt();
-        }
+        printMessage("supervisor stops the program immediately.");
+        programThread.interrupt();
     }
 
 
@@ -39,7 +35,7 @@ public class Supervisor implements Runnable {
 
         System.out.println("Supervisor starts working!");
 
-        //starting the program flow and the program itself
+        //starting the program thread and the program itself
         programThread.start();
         startProgram();
 
@@ -59,7 +55,8 @@ public class Supervisor implements Runnable {
                 switch (currentState) {
                     case STOPPING, UNKNOWN -> startProgram();
                     case FATAL_ERROR -> stopProgram();
-                    default -> printMessage("supervisor monitors the program.");
+                    case RUNNING -> printMessage("supervisor monitors the program.");
+                    default -> printMessage("supervisor doesn't now this state.");
                 }
             }
         }
