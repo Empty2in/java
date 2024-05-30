@@ -3,15 +3,19 @@ package AbstractProg;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class AbstractProg extends AbstractClassProg {
+/**
+ * Class Abstract Program
+ * runs in a separate thread
+ * has a state variable
+ * and a daemon thread that sets a random state
+ */
+public class AbstractProg implements Runnable {
 
-    private final String name;
+    private final String myLock;
+    private ProgState state = ProgState.UNKNOWN;
 
-    private State state = State.UNKNOWN;
-    public static final Object myLock = new Object();
-
-    public AbstractProg(String name) {
-        this.name = name;
+    public AbstractProg(final String myLock) {
+        this.myLock = myLock;
     }
 
     @Override
@@ -19,39 +23,41 @@ public class AbstractProg extends AbstractClassProg {
         System.out.println("Abstract program starts working!");
 
         Thread daemon = new Thread(() -> {
-            Random random = new Random();
+
+            //the daemon runs until the abstract program thread is interrupted
             while (!Thread.currentThread().isInterrupted()) {
+                //specified interval for daemon thread
                 imaginaryDelay(1);
+                //capturing the monitor of an abstract program object by a daemon
                 synchronized (myLock) {
-                    state = State.values()[random.nextInt(State.values().length)];
-                    System.out.println(STR."Daemon sets new state: \{state} for \{name}");
+                    state = ProgState.values()[new Random().nextInt(ProgState.values().length)]; //set a random state
+                    System.out.println(STR."Daemon sets new state: \{state}");
                     myLock.notifyAll();
                 }
-
             }
         });
 
         daemon.setDaemon(true);
         daemon.start();
 
+        //the abstract program runs until thread is interrupted
         while (!Thread.currentThread().isInterrupted()) {
             abstractWork();
         }
-
     }
-    @Override
-    public State getState() {
+
+    public ProgState getState() {
         return state;
     }
 
-    @Override
-    public void setState(final State state) {
-        this.state = state;
+    public String getLock() {
+        return myLock;
     }
 
-    @Override
-    public String getName(){
-        return name;
+    public void setState(final ProgState state) {
+        synchronized (myLock) {
+            this.state = state;
+        }
     }
 
     private void imaginaryDelay(final int timeout) {
@@ -59,8 +65,11 @@ public class AbstractProg extends AbstractClassProg {
             TimeUnit.SECONDS.sleep(timeout);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            System.err.println("Thread was interrupted");
         }
     }
+
+    //some work that an abstract program can do
     private void abstractWork() {
         int letTryCountMaxInt = 0;
         while (letTryCountMaxInt < Integer.MAX_VALUE) {
